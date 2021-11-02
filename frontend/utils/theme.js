@@ -21,7 +21,7 @@ const theme = createMuiTheme({
     },
     // Light Gray
     background: {
-      default: '#D2D3D3',
+      default: '#eee',
     },
   },
 });
