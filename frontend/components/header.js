@@ -10,46 +10,27 @@ import MenuIcon from "@material-ui/icons/Menu";
 
 function Header({ sections, title }) {
   return (
-    <ThemeProvider theme={theme}>
-      {/* <Box sx={{ flexGrow: 1 }}> */}
-      <Box>
-        {/* <AppBar position="static"> */}
-          {/* <Toolbar> */}
-            {/* <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            > */}
-              {/* <MenuIcon /> */}
-            {/* </IconButton> */}
-            {/* <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              News
-            </Typography> */}
-
-            {/* Login Button */}
-            <Button
-              style={theme.palette.b_tercerary}
-              size="medium"
-              variant="outlined"
-            >
-              Login
-            </Button>
-
-            {/* SignUp Button */}
-            <Button
-              style={theme.palette.bg_tercerary}
-              size="medium"
-              variant="contained"
-            >
-              Sign Up
-            </Button>
-          {/* </Toolbar> */}
-        {/* </AppBar> */}
-      {/* </Box> */}
-      </Box>
-    </ThemeProvider>
+    // <ThemeProvider theme={theme}>
+    <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
+    <Button size="small">Subscribe</Button>
+    <Typography
+      component="h2"
+      variant="h5"
+      color="inherit"
+      align="center"
+      noWrap
+      sx={{ flex: 1 }}
+    >
+      {title}
+    </Typography>
+    <IconButton>
+      <MenuIcon />
+    </IconButton>
+    <Button variant="outlined" size="small">
+      Sign up
+    </Button>
+  </Toolbar>
+    // </ThemeProvider>
   );
 }
 
