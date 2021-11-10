@@ -1,0 +1,29 @@
+:root {
+    --primary-color: #9615DB;
+}
+
+.bg-primary {
+    background-color: var(--primary-color);
+}
+
+/* Buttons */
+
+.button-open {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 5px;
+    padding: 4px 15px;
+
+    /* Font Size */
+    font-size: 12px;
+}
+
+.button-fill {
+    background-color: var(--primary-color);
+    color: #FFF;
+    border-radius: 5px;
+    padding: 4px 15px;
+
+    /* Font Size */
+    font-size: 12px;
+}
