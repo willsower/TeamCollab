@@ -26,6 +26,11 @@
   cursor: pointer;
 }
 
+.border_t_small {
+  border-top-width: 0.01em;
+  border-color: #af74cf;
+}
+
 /* md: 768px */
 @media (min-width: 768px) {
   .footer_social_item {

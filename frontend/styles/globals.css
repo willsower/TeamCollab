@@ -1,5 +1,6 @@
 :root {
     --primary-color: #9615DB;
+    --secondary-color: #af74cf;
 }
 
 .bg-primary {
@@ -8,6 +9,14 @@
 
 .text-primary {
     color: var(--primary-color);
+}
+
+.bg-secondary {
+    background-color: var(--secondary-color);
+}
+
+.text-secondary {
+    color: var(--secondary-color);
 }
 
 /* Buttons */
