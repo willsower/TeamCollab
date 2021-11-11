@@ -65,28 +65,28 @@ function Footer() {
             {/* Facebook */}
             <div className={styles.footer_social_item}>
               <a href="/">
-                <Image src="/icon/facebook.png" height="25" width="25" />
+                <Image src="/icon/facebook.png" height="17" width="10" />
               </a>
             </div>
 
             {/* Twitter */}
             <div className={styles.footer_social_item}>
-              <a href="/">
-                <Image src="/icon/twitter.png" height="25" width="25" />
+              <a href="/" className = "bg-primary">
+                <Image src="/icon/twitter.png" height="17" width="17" />
               </a>
             </div>
 
             {/* LinkedIn */}
             <div className={styles.footer_social_item}>
               <a href="/">
-                <Image src="/icon/linkedin.png" height="25" width="25" />
+                <Image src="/icon/linkedin.png" height="17" width="17" />
               </a>
             </div>
 
             {/* Instagram */}
             <div className={styles.footer_social_item}>
               <a href="/">
-                <Image src="/icon/instagram.png" height="25" width="25" />
+                <Image src="/icon/instagram.png" height="17" width="17" />
               </a>
             </div>
           </div>
