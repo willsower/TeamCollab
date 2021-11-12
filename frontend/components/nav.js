@@ -5,15 +5,16 @@ import styles from "../styles/Nav.module.css";
 
 function Nav() {
   return (
-    <nav className="w-full h-14">
+    <nav className="w-full h-14 bg-secondary">
       {/* Logo */}
-      <div className="mt-4 ml-4 float-left">
+      <div className="mt-4 ml-4 float-left md:ml-8 flex">
         <div className="bg-primary h-7 w-7 rounded-md text-white text-center pt-0.5 font-bold">
           T
         </div>
+        <p className = "ml-2 mt-0.5">Team Collab</p>
       </div>
 
-      <div className="hidden md:block md:flex md:mt-4 md:absolute md:right-0">
+      <div className="hidden sm:block sm:flex sm:mt-4 sm:absolute sm:right-0">
         {/* Regular Links */}
         <div className={styles.nav_link}>
           <Link href="/">Home</Link>

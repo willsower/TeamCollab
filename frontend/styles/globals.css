@@ -1,6 +1,7 @@
 :root {
     --primary-color: #9615DB;
-    --secondary-color: #af74cf;
+    --secondary-color: #faf5fb;
+    --gray: rgb(166, 166, 166);
 }
 
 .bg-primary {
@@ -11,12 +12,26 @@
     color: var(--primary-color);
 }
 
+.text-gray {
+    color: var(--gray);
+}
+
 .bg-secondary {
     background-color: var(--secondary-color);
 }
 
 .text-secondary {
     color: var(--secondary-color);
+}
+
+/* Test Size */
+
+.text-xxs {
+    font-size: 0.7rem;
+}
+
+.text-xxxs {
+    font-size: 0.6rem;
 }
 
 /* Buttons */
@@ -39,4 +54,14 @@
 
     /* Font Size */
     font-size: 12px;
+}
+
+.button-open:hover {
+    background-color: var(--secondary-color);
+    cursor: pointer;
+}
+
+.button-fill:hover {
+    background-color: #9b41cc;
+    cursor: pointer;
 }

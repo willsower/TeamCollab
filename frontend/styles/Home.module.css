@@ -1,0 +1,37 @@
+.changing_keywords {
+  position: relative;
+  width: 600px;
+}
+
+.hidden {
+    position:absolute;
+    top: 20px;
+    display:inline-block;
+    width:250px;
+      opacity:0;
+    animation: slidein 2s infinite;
+}
+
+/* .hidden:nth-child(2) {
+  animation-delay: 2s;
+}
+
+.hidden:nth-child(4) {
+  animation-delay: 4s;
+}
+
+.hidden:nth-child(6) {
+  animation-delay: 6s;
+} */
+
+@keyframes slidein {
+    from {
+        margin-left: 0%;
+        width: 300%;
+      }
+    
+      to {
+        margin-left: 100%;
+        width: 100%;
+      }
+}
