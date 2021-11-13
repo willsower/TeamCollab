@@ -5,7 +5,7 @@ import styles from "../styles/Footer.module.css";
 
 function Footer() {
   return (
-    <footer className="bg-primary text-white">
+    <footer className="bg-primary text-white sticky bottom-0">
       <div className = "md:flex md:justify-center py-6 pl-12 md:pl-0">
         <div className="w-44 md:w-56 pt-12">
           {/* Logo */}

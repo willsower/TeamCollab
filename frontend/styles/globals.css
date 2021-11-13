@@ -4,6 +4,10 @@
     --gray: rgb(166, 166, 166);
 }
 
+html, body {
+    height: 100%;
+}
+
 .bg-primary {
     background-color: var(--primary-color);
 }
