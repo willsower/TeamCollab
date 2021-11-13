@@ -13,7 +13,17 @@ export default function SignUp() {
 
       <Nav />
 
-      <main></main>
+      <main>
+        <section className = "">
+          <h1>Sign Up</h1>
+          <form onSubmit = "">
+            <label>Email</label>
+            <input name = "email" type = "text"/>
+            <label>Password</label>
+            <input name = "password" type = "password"/>
+          </form>
+        </section>
+      </main>
 
       <Footer />
     </>
