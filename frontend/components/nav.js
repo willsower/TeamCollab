@@ -31,7 +31,7 @@ function Nav() {
           <Link href="/account/login">Login</Link>
         </div>
         <div className="button-fill mr-4 py-1 px-4">
-          <Link href="/account/register">Sign Up</Link>
+          <Link href="/account/signup">Sign Up</Link>
         </div>
       </div>
     </nav>

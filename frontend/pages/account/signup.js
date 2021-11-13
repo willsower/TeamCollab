@@ -3,11 +3,11 @@ import Head from "next/head";
 import Nav from "../../components/nav";
 import Footer from "../../components/footer";
 
-export default function Register() {
+export default function SignUp() {
   return (
     <>
       <Head>
-        <title>Register</title>
+        <title>Sign Up</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
