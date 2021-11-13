@@ -16,11 +16,26 @@ export default function SignUp() {
       <Nav />
 
       <main>
-        <section className = "py-12 px-8 text-center">
-          <h1 className = "font-bold text-3xl">Sign Up</h1>
-          <form onSubmit = "">
-            <input name = "email" type = "text" placeholder = "Email" className = {styles.form_item}/><br/>
-            <input name = "password" type = "password" placeholder = "Password" className = {styles.form_item}/>
+        <section className="py-12 px-8 text-center">
+          <h1 className="font-bold text-3xl">Sign Up</h1>
+          <form onSubmit="">
+            <input
+              name="email"
+              type="text"
+              placeholder="Email"
+              className={styles.form_item}
+            />
+            <br />
+            <input
+              name="password"
+              type="password"
+              placeholder="Password"
+              className={styles.form_item}
+            />
+            <br />
+            <button type = "submit" className={`button-fill mt-4 ${styles.form_button}`}>
+              Create Account
+            </button>
           </form>
         </section>
       </main>
