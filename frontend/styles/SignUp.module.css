@@ -1,0 +1,12 @@
+.form_item {
+    border: 2px solid black;
+    margin-top: 20px;
+    border-radius: 0.25rem;
+    padding: 8px;
+    width: 350px;
+}
+
+.form_item:focus {
+    border-color: #9615DB;
+    outline: none;
+}
