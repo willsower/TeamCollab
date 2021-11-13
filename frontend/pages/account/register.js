@@ -1,7 +1,7 @@
 import Head from "next/head";
 
-import Nav from "../components/nav";
-import Footer from "../components/footer";
+import Nav from "../../components/nav";
+import Footer from "../../components/footer";
 
 export default function Register() {
   return (
