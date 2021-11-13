@@ -1,16 +1,67 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+:root {
+    --primary-color: #9615DB;
+    --secondary-color: #faf5fb;
+    --gray: rgb(166, 166, 166);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.bg-primary {
+    background-color: var(--primary-color);
 }
 
-* {
-  box-sizing: border-box;
+.text-primary {
+    color: var(--primary-color);
+}
+
+.text-gray {
+    color: var(--gray);
+}
+
+.bg-secondary {
+    background-color: var(--secondary-color);
+}
+
+.text-secondary {
+    color: var(--secondary-color);
+}
+
+/* Test Size */
+
+.text-xxs {
+    font-size: 0.7rem;
+}
+
+.text-xxxs {
+    font-size: 0.6rem;
+}
+
+/* Buttons */
+
+.button-open {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 5px;
+    text-align: center;
+
+    /* Font Size */
+    font-size: 12px;
+}
+
+.button-fill {
+    background-color: var(--primary-color);
+    color: #FFF;
+    border-radius: 5px;
+    text-align: center;
+
+    /* Font Size */
+    font-size: 12px;
+}
+
+.button-open:hover {
+    background-color: var(--secondary-color);
+    cursor: pointer;
+}
+
+.button-fill:hover {
+    background-color: #9b41cc;
+    cursor: pointer;
 }
