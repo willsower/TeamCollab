@@ -4,7 +4,7 @@ import Link from "next/link";
 import Nav from "../../components/nav";
 import Footer from "../../components/footer";
 
-import styles from "../../styles/SignUp.module.css";
+import styles from "../../styles/SignUpLogin.module.css";
 
 export default function SignUp() {
   return (
