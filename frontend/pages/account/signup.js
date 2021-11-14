@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 
 import Nav from "../../components/nav";
 import Footer from "../../components/footer";
@@ -37,6 +38,14 @@ export default function SignUp() {
               Create Account
             </button>
           </form>
+
+          <div>
+            <div><span>Already have an account? </span><Link href = "/">Log in</Link></div>
+            <div className = "text-xxs w-80 m-auto text-gray">
+              <span>By clicking "Create Account", I agreee to TeamCollab's </span><Link href = "/">Terms of Service</Link><span> and </span><Link href = "/">Privacy Policy.</Link>
+            </div>
+          </div>
+        
         </section>
       </main>
 
