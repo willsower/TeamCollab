@@ -17,7 +17,7 @@ export default function SignUp() {
       <Nav />
 
       <main>
-        <section className="py-12 px-8 text-center">
+        <section className="py-12 px-8 text-center bg-secondary">
           <h1 className="font-bold text-3xl">Sign Up</h1>
           <form onSubmit="">
             <input
@@ -34,18 +34,34 @@ export default function SignUp() {
               className={styles.form_item}
             />
             <br />
-            <button type = "submit" className={`button-fill mt-4 ${styles.form_button}`}>
+            <button
+              type="submit"
+              className={`button-fill mt-4 ${styles.form_button}`}
+            >
               Create Account
             </button>
           </form>
 
-          <div>
-            <div><span>Already have an account? </span><Link href = "/">Log in</Link></div>
-            <div className = "text-xxs w-80 m-auto text-gray">
-              <span>By clicking "Create Account", I agreee to TeamCollab's </span><Link href = "/">Terms of Service</Link><span> and </span><Link href = "/">Privacy Policy.</Link>
+          <div className = "mt-3">
+            <div>
+              <span className = "text-gray">Already have an account? </span>
+              <span className="text-link-blue">
+                <Link href="/">Log in</Link>
+              </span>
+            </div>
+            <div className="text-xxs w-80 m-auto text-gray mt-4">
+              <span>
+                By clicking "Create Account", I agreee to TeamCollab's{" "}
+              </span>
+              <span className="text-link-blue">
+                <Link href="/">Terms of Service</Link>
+              </span>
+              <span> and </span>
+              <span className="text-link-blue">
+                <Link href="/">Privacy Policy</Link>.
+              </span>
             </div>
           </div>
-        
         </section>
       </main>
 

@@ -2,6 +2,7 @@
     --primary-color: #9615DB;
     --secondary-color: #faf5fb;
     --gray: rgb(125, 125, 125);
+    --link-blue: rgb(103, 131, 254);
 }
 
 html, body {
@@ -18,6 +19,10 @@ html, body {
 
 .text-gray {
     color: var(--gray);
+}
+
+.text-link-blue {
+    color: var(--link-blue);
 }
 
 .bg-secondary {
