@@ -19,7 +19,7 @@ export default function SignUp() {
       <main>
         <section className="py-12 px-8 text-center bg-secondary">
           <h1 className="font-bold text-3xl">Sign Up</h1>
-          <form onSubmit="">
+          <form action="/sign_up" method = "POST">
             <input
               name="email"
               type="text"
