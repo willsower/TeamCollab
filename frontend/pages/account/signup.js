@@ -46,7 +46,7 @@ export default function SignUp() {
             <div>
               <span className = "text-gray">Already have an account? </span>
               <span className="text-link-blue">
-                <Link href="/">Log in</Link>
+                <Link href="/account/login">Log in</Link>
               </span>
             </div>
             <div className="text-xxs w-80 m-auto text-gray mt-4">
