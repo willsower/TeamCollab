@@ -10,7 +10,7 @@ export default function Login() {
   return (
     <>
       <Head>
-        <title>Login</title>
+        <title>Log In</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -18,7 +18,7 @@ export default function Login() {
 
       <main>
         <section className="py-12 px-8 text-center bg-secondary">
-          <h1 className="font-bold text-3xl">Sign Up</h1>
+          <h1 className="font-bold text-3xl">Log In</h1>
           <form onSubmit="">
             <input
               name="email"
@@ -38,29 +38,23 @@ export default function Login() {
               type="submit"
               className={`button-fill mt-4 ${styles.form_button}`}
             >
-              Create Account
+              Log In
             </button>
           </form>
 
           <div className="mt-3">
-            <div>
-              <span className="text-gray">Already have an account? </span>
+            <div className="text-link-blue">
+              <Link href="/account/login">Forgot password?</Link>
+            </div>
+            <div className = "mt-3">
+              <span className = "text-gray">No Account? </span>
               <span className="text-link-blue">
-                <Link href="/account/login">Log in</Link>
+                <Link href="/account/signup">Create one</Link>
               </span>
             </div>
-            <div className="text-xxs w-80 m-auto text-gray mt-4">
-              <span>
-                By clicking "Create Account", I agreee to TeamCollab's{" "}
-              </span>
-              <span className="text-link-blue">
-                <Link href="/">Terms of Service</Link>
-              </span>
-              <span> and </span>
-              <span className="text-link-blue">
-                <Link href="/">Privacy Policy</Link>.
-              </span>
-            </div>
+            {/* <div className="text-xxs w-80 m-auto text-gray mt-4">
+
+            </div> */}
           </div>
         </section>
       </main>
