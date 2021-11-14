@@ -1,40 +1,25 @@
-require("dotenv").config();
+const express = require('express')
+const next = require('next')
+const bodyParser = require('body-parser')
+const PORT = process.env.PORT || 3000
+const dev = process.env.NODE_DEV !== 'production' //true false
+const nextApp = next({ dev })
+const handle = nextApp.getRequestHandler() //part of next config
+const mongoose = require('mongoose')
 
-const express = require("express");
-const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
+const db = mongoose.connect('mongodb://localhost:27017/Photos')
 
-mongoose.connect('mongodb://localhost:27017/gfg');
-var db=mongoose.connection;
-db.on('error', console.log.bind(console, "connection error"));
-db.once('open', function(callback){
-    console.log("connection succeeded");
-})
-
-const app = express();
-
-app.use(bodyParser.json());
-app.use(express.static('public'));
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-
-app.post('/sign_up', function(req,res){
-    var email =req.body.email;
-    var pass = req.body.password;
-  
-    var data = {
-        "email":email,
-        "password":pass,
-    }
-db.collection('details').insertOne(data,function(err, collection){
+nextApp.prepare().then(() => {
+    // express code here
+    const app = express()
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: true }));
+    app.use('/api/photos', require('./routes/index')) 
+    app.get('*', (req,res) => {
+        return handle(req,res) // for all the react stuff
+    })
+    app.listen(PORT, err => {
         if (err) throw err;
-        console.log("Record inserted Successfully");
-              
-    });
-          
-    return res.redirect('signup_success.html');
+        console.log(`ready at http://localhost:${PORT}`)
+    })
 })
-
-
-app.listen(3001, () => console.log("Server is running"));
