@@ -1,41 +1,44 @@
-const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
-const session = require('express-session');
-const connectStore = require('connect-mongo');
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const expressValidator = require('express-validator')
 
-// configures for .env files
-require('dotenv').config();
+// Allows you to read env files
+require("dotenv").config();
 
-// configure express server
+var usersRouter = require('./routes/users.routes');
+
 const app = express();
-const port = process.env.PORT || 5000;
-
-// hide express middleware from browser
-app.disable('x-powered-by');
-
-app.use(cors());
-// parse send/receive json
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded());
+app.use(cors());
+// app.use(expressValidator())
 
-// uri from mongoDB goes here
-const uri = process.env.MONGODB_URL;
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+() => {
+  console.log("connected to DB");
+};
 
-// connect to database
-mongoose.connect(uri, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true 
+mongoose.Promise = global.Promise;
+
+// Routers
+app.use("/users", usersRouter);
+
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  res.status(err.status || 404).json({
+    message: "No such route exists",
+  });
 });
 
-const connection = mongoose.connection;
-
-connection.once('open', () => {
-    console.log("MongoDB database connection established");
+// error handler
+app.use(function (err, req, res, next) {
+  res.status(err.status || 500).json({
+    message: "Error Message",
+  });
 });
 
-// start server
-app.listen(port, () => {
-    console.log(`Server is running on port: ${port}`);
-});
+app.listen(3001, () => console.log("Server is running"));
