@@ -41,7 +41,6 @@ export default function SignUp() {
         .then((res) => console.log(res));
     } else {
       e.preventDefault();
-      alert("invalid input");
     }
   }
 

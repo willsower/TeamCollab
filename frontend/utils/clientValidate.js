@@ -26,7 +26,8 @@ const validateSignUp = (email, password) => {
   if (password) {
     if (!password.match(/^.*(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,}).*$/)) {
       formIsValid = false;
-      errors["password"] = "Please enter secure and strong password";
+    //   errors["password"] = "Please enter secure and strong password<br/>1 Capital Letter<br/>1 Lowercase Letter<br/>1 Number<br/>At least 8 charachters";
+    errors["password"] = "Please enter secure and strong password";
     }
   }
 
