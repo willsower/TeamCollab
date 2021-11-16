@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const bodyParser = require('body-parser');
+const { body, validationResult } = require('express-validator');
 
 // Allows you to read env files
 require("dotenv").config();
@@ -11,7 +13,6 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(cors());
-// app.use(expressValidator())
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,

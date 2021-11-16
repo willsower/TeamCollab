@@ -41,7 +41,7 @@ export default function SignUp() {
       axios.post("http://localhost:3001/users/signup", user).then((res) => {
         if (res) {
           setServerErr(res.data);
-          e.preventDefault();
+          // e.preventDefault();
         }
       });
     } else {

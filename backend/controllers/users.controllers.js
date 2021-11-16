@@ -1,4 +1,5 @@
 const User = require("../models/user");
+// const Methods = require ("../middleware/registerAuth");
 
 //Login
 const userLogin = (req, res, next) => {
@@ -33,6 +34,7 @@ const userLogin = (req, res, next) => {
 // Sign Up
 const userRegister = (req, res, next) => {
   console.log(req.body);
+  console.log("TESTING");
   const { email, password } = req.body;
   User.findOne({ email: email }, (err, user) => {
     if (user) {
