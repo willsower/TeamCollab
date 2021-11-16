@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import axios from "axios";
 
@@ -44,13 +45,26 @@ export default function Login() {
       <main>
         <section className="py-12 px-8 text-center bg-secondary">
           <h1 className="font-bold text-3xl">Log In</h1>
+          {/* Google Sign In */}
+          <button className={`${styles.form_item}`}>
+            <div className="inline-block w-6 h-6 relative align-middle">
+              <Image src="/icon/google.svg" layout="fill" objectFit="contain" />
+            </div>
+            <p className="ml-2 inline-block align-middle font-semibold">
+              Login with Google
+            </p>
+          </button>
+
+          <p className="mt-4 text-gray font-light">or</p>
+
           <form action="#" method="POST">
             <input
               name="email"
               type="text"
               placeholder="Email"
               className={styles.form_item}
-              value={user.email}  onChange={handleChange}
+              value={user.email}
+              onChange={handleChange}
               required
             />
             <br />
@@ -59,7 +73,8 @@ export default function Login() {
               type="password"
               placeholder="Password"
               className={styles.form_item}
-              value={user.password}  onChange={handleChange}
+              value={user.password}
+              onChange={handleChange}
               required
             />
             <br />

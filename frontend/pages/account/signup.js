@@ -64,22 +64,21 @@ export default function SignUp() {
           {serverErr != "" && <p className="text-red-500">{serverErr}</p>}
 
           {/* Google Sign In */}
-          <button className="button">
-            {/* <img
-              src="icons/google.svg"
-              alt="google login"
-              className="icon"
-            ></img> */}
-            <Image src = "/icon/google.svg" height = "20" width = "20"/>
-            <span className="buttonText">Sign in with Google</span>
+          <button className={`${styles.form_item}`}>
+            <div className = "inline-block w-6 h-6 relative align-middle">
+              <Image src="/icon/google.svg" layout = "fill" objectFit = "contain" />
+            </div>
+            <p className="ml-2 inline-block align-middle font-semibold">Sign in with Google</p>
           </button>
+
+          <p className = "mt-4 text-gray font-light">or</p>
 
           <form action="#" method="POST">
             <input
               name="email"
               type="text"
               placeholder="Email"
-              className={styles.form_item}
+              className={`${styles.form_item}`}
               value={user.email}
               onChange={handleChange}
               required
@@ -95,7 +94,7 @@ export default function SignUp() {
               name="password"
               type="password"
               placeholder="Password"
-              className={styles.form_item}
+              className={`${styles.form_item}`}
               value={user.password}
               onChange={handleChange}
               required
