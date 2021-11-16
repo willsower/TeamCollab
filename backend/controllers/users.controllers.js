@@ -1,5 +1,4 @@
 const User = require("../models/user");
-require("dotenv").config();
 
 //Login
 const userLogin = (req, res, next) => {
