@@ -18,6 +18,7 @@ export default function SignUp() {
 
   const [emailErr, setEmailErr] = useState("");
   const [passErr, setPassErr] = useState("");
+  const [serverErr, setServerErr] = useState("");
 
   // Handle on Change
   const handleChange = (e) => {
@@ -38,7 +39,14 @@ export default function SignUp() {
     if (email && password && validate.formIsValid) {
       axios
         .post("http://localhost:3001/users/signup", user)
-        .then((res) => console.log(res));
+        .then((res) => {
+          console.log(res);
+          if (res) {
+            console.log("TEST");
+            setServerErr(res.message);
+            console.log(serverErr);
+          }
+        });
     } else {
       e.preventDefault();
     }

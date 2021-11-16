@@ -36,6 +36,7 @@ const userRegister = (req, res, next) => {
   const { email, password } = req.body;
   User.findOne({ email: email }, (err, user) => {
     if (user) {
+      console.log("USER EXISTS");
       res.send({ message: "user already exist" });
     } else {
       const user = new User({ email, password });

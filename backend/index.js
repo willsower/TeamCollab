@@ -1,7 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const expressValidator = require('express-validator')
 
 // Allows you to read env files
 require("dotenv").config();
