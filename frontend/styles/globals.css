@@ -1,7 +1,12 @@
 :root {
     --primary-color: #9615DB;
     --secondary-color: #faf5fb;
-    --gray: rgb(166, 166, 166);
+    --gray: rgb(125, 125, 125);
+    --link-blue: rgb(103, 131, 254);
+}
+
+html, body {
+    height: 100%;
 }
 
 .bg-primary {
@@ -14,6 +19,10 @@
 
 .text-gray {
     color: var(--gray);
+}
+
+.text-link-blue {
+    color: var(--link-blue);
 }
 
 .bg-secondary {
