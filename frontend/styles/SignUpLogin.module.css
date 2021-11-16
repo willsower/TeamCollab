@@ -4,6 +4,7 @@
     border-radius: 0.25rem;
     padding: 8px;
     width: 350px;
+    background-color: #FFF;
 }
 
 .form_item:focus {

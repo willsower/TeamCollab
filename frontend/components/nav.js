@@ -27,12 +27,13 @@ function Nav() {
         </div>
 
         {/* Button Links */}
-        <div className="button-open mr-4 py-1 px-4">
-          <Link href="/account/login">Login</Link>
-        </div>
-        <div className="button-fill mr-4 py-1 px-4">
-          <Link href="/account/signup">Sign Up</Link>
-        </div>
+        <Link href="/account/login">
+          <button className="button-open mr-4 py-1 px-4">Login</button>
+        </Link>
+
+        <Link href="/account/signup">
+          <button className="button-fill mr-4 py-1 px-4">Sign Up</button>
+        </Link>
       </div>
     </nav>
   );

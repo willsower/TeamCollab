@@ -1,5 +1,4 @@
 const User = require("../models/user");
-require("dotenv").config();
 
 //Login
 const userLogin = (req, res, next) => {
@@ -37,12 +36,12 @@ const userRegister = (req, res, next) => {
   const { email, password } = req.body;
   User.findOne({ email: email }, (err, user) => {
     if (user) {
-      res.send({ message: "user already exist" });
+      console.log("USER EXISTS");
+      res.send("User already exists");
     } else {
       const user = new User({ email, password });
       user.save((err) => {
         if (err) {
-          console.log("ERROR " + err);
           res.send(err);
         } else {
           console.log("SUCCESS");
