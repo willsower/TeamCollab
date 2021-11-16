@@ -34,12 +34,11 @@ const userLogin = (req, res, next) => {
 // Sign Up
 const userRegister = (req, res, next) => {
   console.log(req.body);
-  console.log("TESTING");
   const { email, password } = req.body;
   User.findOne({ email: email }, (err, user) => {
     if (user) {
       console.log("USER EXISTS");
-      res.send("User already exists");
+      res.send({err: "User already exists"});
     } else {
       const user = new User({ email, password });
       user.save((err) => {

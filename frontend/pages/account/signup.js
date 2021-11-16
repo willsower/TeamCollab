@@ -39,9 +39,9 @@ export default function SignUp() {
 
     if (email && password && validate.formIsValid) {
       axios.post("http://localhost:3001/users/signup", user).then((res) => {
-        if (res) {
-          setServerErr(res.data);
-          // e.preventDefault();
+        if (res.data.err) {
+          setServerErr(res.data.err);
+          e.preventDefault();
         }
       });
     } else {
