@@ -65,13 +65,15 @@ export default function SignUp() {
 
           {/* Google Sign In */}
           <button className={`${styles.form_item}`}>
-            <div className = "inline-block w-6 h-6 relative align-middle">
-              <Image src="/icon/google.svg" layout = "fill" objectFit = "contain" />
+            <div className="inline-block w-6 h-6 relative align-middle">
+              <Image src="/icon/google.svg" layout="fill" objectFit="contain" />
             </div>
-            <p className="ml-2 inline-block align-middle font-semibold">Sign in with Google</p>
+            <p className="ml-2 inline-block align-middle font-semibold">
+              Sign in with Google
+            </p>
           </button>
 
-          <p className = "mt-4 text-gray font-light">or</p>
+          <p className="mt-4 text-gray font-light">or</p>
 
           <form action="#" method="POST">
             <input
@@ -125,6 +127,21 @@ export default function SignUp() {
               </span>
             </div>
             <div className="text-xxs w-80 m-auto text-gray mt-4">
+              <div className="mb-1">
+                This site is protected by reCAPTCHA and the Google{" "}
+                <span className="text-link-blue">
+                  <Link href="https://policies.google.com/privacy">
+                    Privacy Policy
+                  </Link>{" "}
+                </span>
+                and{" "}
+                <span className="text-link-blue">
+                  <Link href="https://policies.google.com/terms">
+                    Terms of Service
+                  </Link>
+                </span>{" "}
+                apply.
+              </div>
               <span>
                 By clicking "Create Account", I agreee to TeamCollab's{" "}
               </span>

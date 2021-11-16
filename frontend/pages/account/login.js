@@ -97,9 +97,23 @@ export default function Login() {
                 <Link href="/account/signup">Create one</Link>
               </span>
             </div>
-            {/* <div className="text-xxs w-80 m-auto text-gray mt-4">
-
-            </div> */}
+            <div className="text-xxs w-80 m-auto text-gray mt-2">
+              <div className="mb-1">
+                This site is protected by reCAPTCHA and the Google{" "}
+                <span className="text-link-blue">
+                  <Link href="https://policies.google.com/privacy">
+                    Privacy Policy
+                  </Link>{" "}
+                </span>
+                and{" "}
+                <span className="text-link-blue">
+                  <Link href="https://policies.google.com/terms">
+                    Terms of Service
+                  </Link>
+                </span>{" "}
+                apply.
+              </div>
+            </div>
           </div>
         </section>
       </main>
