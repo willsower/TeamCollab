@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import axios from "axios";
 
@@ -37,14 +38,12 @@ export default function SignUp() {
     setPassErr(validate.errors.password);
 
     if (email && password && validate.formIsValid) {
-      axios
-        .post("http://localhost:3001/users/signup", user)
-        .then((res) => {
-          if (res) {
-            setServerErr(res.data);
-            e.preventDefault();
-          }
-        });
+      axios.post("http://localhost:3001/users/signup", user).then((res) => {
+        if (res) {
+          setServerErr(res.data);
+          e.preventDefault();
+        }
+      });
     } else {
       e.preventDefault();
     }
@@ -63,6 +62,18 @@ export default function SignUp() {
         <section className="py-12 px-8 text-center bg-secondary">
           <h1 className="font-bold text-3xl">Sign Up</h1>
           {serverErr != "" && <p className="text-red-500">{serverErr}</p>}
+
+          {/* Google Sign In */}
+          <button className="button">
+            {/* <img
+              src="icons/google.svg"
+              alt="google login"
+              className="icon"
+            ></img> */}
+            <Image src = "/icon/google.svg" height = "20" width = "20"/>
+            <span className="buttonText">Sign in with Google</span>
+          </button>
+
           <form action="#" method="POST">
             <input
               name="email"
@@ -74,7 +85,11 @@ export default function SignUp() {
               required
               id="email"
             />
-            {emailErr != "" ? <p className="text-red-500">{emailErr}</p> : <br />}
+            {emailErr != "" ? (
+              <p className="text-red-500">{emailErr}</p>
+            ) : (
+              <br />
+            )}
 
             <input
               name="password"
@@ -86,7 +101,14 @@ export default function SignUp() {
               required
               id="pass"
             />
-            {passErr != "" ? <p className="text-red-500"dangerouslySetInnerHTML={{__html: passErr}}></p> : <br />}
+            {passErr != "" ? (
+              <p
+                className="text-red-500"
+                dangerouslySetInnerHTML={{ __html: passErr }}
+              ></p>
+            ) : (
+              <br />
+            )}
             <button
               type="submit"
               className={`button-fill mt-4 ${styles.form_button}`}
