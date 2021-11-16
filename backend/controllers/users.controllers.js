@@ -37,12 +37,11 @@ const userRegister = (req, res, next) => {
   User.findOne({ email: email }, (err, user) => {
     if (user) {
       console.log("USER EXISTS");
-      res.send({ message: "user already exist" });
+      res.send("User already exists");
     } else {
       const user = new User({ email, password });
       user.save((err) => {
         if (err) {
-          console.log("ERROR " + err);
           res.send(err);
         } else {
           console.log("SUCCESS");

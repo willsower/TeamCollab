@@ -40,11 +40,9 @@ export default function SignUp() {
       axios
         .post("http://localhost:3001/users/signup", user)
         .then((res) => {
-          console.log(res);
           if (res) {
-            console.log("TEST");
-            setServerErr(res.message);
-            console.log(serverErr);
+            setServerErr(res.data);
+            e.preventDefault();
           }
         });
     } else {
@@ -64,6 +62,7 @@ export default function SignUp() {
       <main>
         <section className="py-12 px-8 text-center bg-secondary">
           <h1 className="font-bold text-3xl">Sign Up</h1>
+          {serverErr != "" && <p className="text-red-500">{serverErr}</p>}
           <form action="#" method="POST">
             <input
               name="email"
