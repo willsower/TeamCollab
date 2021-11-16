@@ -79,7 +79,7 @@ export default function SignUp() {
               required
               id="pass"
             />
-            {passErr != "" ? <p className="text-red-500">{passErr}</p> : <br />}
+            {passErr != "" ? <p className="text-red-500"dangerouslySetInnerHTML={{__html: passErr}}></p> : <br />}
             <button
               type="submit"
               className={`button-fill mt-4 ${styles.form_button}`}
