@@ -5,6 +5,7 @@ import axios from "axios";
 
 import Nav from "../../components/nav";
 import Footer from "../../components/footer";
+import validateSignIn from "../../utils/clientValidate";
 import Google from "../../components/google";
 import validateSignUp from "../../utils/clientValidate";
 
@@ -19,7 +20,7 @@ export default function SignUp() {
 
   const [emailErr, setEmailErr] = useState("");
   const [passErr, setPassErr] = useState("");
-  const [serverErr, setServerErr] = useState("");
+  const [serverErr, setServerErr] = useState("Test");
 
   // Handle on Change
   const handleChange = (e) => {
@@ -33,16 +34,13 @@ export default function SignUp() {
   // Send user to database
   function register(e) {
     const { email, password } = user;
-    const validate = validateSignUp(email, password);
+    const validate = validateSignIn(email, password);
     setEmailErr(validate.errors.email);
     setPassErr(validate.errors.password);
 
     if (email && password && validate.formIsValid) {
       axios.post("http://localhost:3001/users/signup", user).then((res) => {
-        if (res.data.err) {
-          setServerErr(res.data.err);
-          e.preventDefault();
-        }
+        setServerErr(res.data);
       });
     } else {
       e.preventDefault();
@@ -61,7 +59,7 @@ export default function SignUp() {
       <main>
         <section className="py-12 px-8 text-center bg-secondary">
           <h1 className="font-bold text-3xl">Sign Up</h1>
-          {serverErr != "" && <p className="text-red-500">{serverErr}</p>}
+          {serverErr != "" && <p className="text-red-500 mt-4">{serverErr}</p>}
 
           <Google type = "Sign Up" />
 

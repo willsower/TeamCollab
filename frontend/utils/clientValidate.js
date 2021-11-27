@@ -1,4 +1,4 @@
-const validateSignUp = (email, password) => {
+const validateSignIn = (email, password) => {
   let errors = {};
   let formIsValid = true;
 
@@ -33,4 +33,4 @@ const validateSignUp = (email, password) => {
   return {formIsValid, errors};
 };
 
-export default validateSignUp;
+export default validateSignIn;

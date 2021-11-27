@@ -5,6 +5,7 @@ import axios from "axios";
 
 import Nav from "../../components/nav";
 import Footer from "../../components/footer";
+import validateSignIn from "../../utils/clientValidate";
 import Google from "../../components/google";
 
 import styles from "../../styles/SignUpLogin.module.css";
@@ -16,6 +17,10 @@ export default function Login() {
     password: "",
   });
 
+  const [emailErr, setEmailErr] = useState("");
+  const [passErr, setPassErr] = useState("");
+  const [serverErr, setServerErr] = useState("Test");
+
   // Handle on Change
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,11 +31,20 @@ export default function Login() {
   };
 
   // Check if User in DB
-  function login() {
-    axios.post("http://localhost:3001/users/login", user).then((res) => {
-      alert(res.data.message);
-      setLoginUser(res.data.user);
-    });
+  function login(e) {
+    const { email, password } = user;
+    const validate = validateSignIn(email, password);
+    setEmailErr(validate.errors.email);
+    setPassErr(validate.errors.password);
+
+    if (email && password && validate.formIsValid) {
+      axios.post("http://localhost:3001/users/login", user).then((res) => {
+        alert(res.data.message);
+        setLoginUser(res.data.user);
+      });
+    } else {
+      e.preventDefault();
+    }
   }
 
   return (
@@ -45,6 +59,7 @@ export default function Login() {
       <main>
         <section className="py-12 px-8 text-center bg-secondary">
           <h1 className="font-bold text-3xl">Log In</h1>
+          {serverErr != "" && <p className="text-red-500 mt-4">{serverErr}</p>}
          
           <Google type = "Login" />
 
@@ -60,7 +75,12 @@ export default function Login() {
               onChange={handleChange}
               required
             />
-            <br />
+            {emailErr != "" ? (
+              <p className="text-red-500">{emailErr}</p>
+            ) : (
+              <br />
+            )}
+
             <input
               name="password"
               type="password"
@@ -70,7 +90,15 @@ export default function Login() {
               onChange={handleChange}
               required
             />
-            <br />
+            {passErr != "" ? (
+              <p
+                className="text-red-500"
+                dangerouslySetInnerHTML={{ __html: passErr }}
+              ></p>
+            ) : (
+              <br />
+            )}
+
             <button
               type="submit"
               className={`button-fill mt-4 ${styles.form_button}`}
