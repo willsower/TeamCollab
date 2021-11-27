@@ -19,7 +19,7 @@ export default function SignUp() {
 
   const [emailErr, setEmailErr] = useState("");
   const [passErr, setPassErr] = useState("");
-  const [serverErr, setServerErr] = useState("");
+  const [serverErr, setServerErr] = useState("Test");
 
   // Handle on Change
   const handleChange = (e) => {
@@ -39,10 +39,7 @@ export default function SignUp() {
 
     if (email && password && validate.formIsValid) {
       axios.post("http://localhost:3001/users/signup", user).then((res) => {
-        if (res) {
-          setServerErr(res.data);
-          e.preventDefault();
-        }
+        setServerErr(res.data);
       });
     } else {
       e.preventDefault();
@@ -61,7 +58,7 @@ export default function SignUp() {
       <main>
         <section className="py-12 px-8 text-center bg-secondary">
           <h1 className="font-bold text-3xl">Sign Up</h1>
-          {serverErr != "" && <p className="text-red-500">{serverErr}</p>}
+          {serverErr != "" && <p className="text-red-500 mt-4">{serverErr}</p>}
 
           {/* Google Sign In */}
           <button className={`${styles.form_item}`}>
