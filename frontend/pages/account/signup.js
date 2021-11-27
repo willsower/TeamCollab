@@ -6,7 +6,7 @@ import axios from "axios";
 
 import Nav from "../../components/nav";
 import Footer from "../../components/footer";
-import validateSignUp from "../../utils/clientValidate";
+import validateSignIn from "../../utils/clientValidate";
 
 import styles from "../../styles/SignUpLogin.module.css";
 
@@ -33,7 +33,7 @@ export default function SignUp() {
   // Send user to database
   function register(e) {
     const { email, password } = user;
-    const validate = validateSignUp(email, password);
+    const validate = validateSignIn(email, password);
     setEmailErr(validate.errors.email);
     setPassErr(validate.errors.password);
 
