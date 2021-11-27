@@ -5,6 +5,7 @@ import axios from "axios";
 
 import Nav from "../../components/nav";
 import Footer from "../../components/footer";
+import Google from "../../components/google";
 
 import styles from "../../styles/SignUpLogin.module.css";
 
@@ -44,13 +45,19 @@ export default function Login() {
       <main>
         <section className="py-12 px-8 text-center bg-secondary">
           <h1 className="font-bold text-3xl">Log In</h1>
+         
+          <Google type = "Login" />
+
+          <p className="mt-4 text-gray font-light">or</p>
+
           <form action="#" method="POST">
             <input
               name="email"
               type="text"
               placeholder="Email"
               className={styles.form_item}
-              value={user.email}  onChange={handleChange}
+              value={user.email}
+              onChange={handleChange}
               required
             />
             <br />
@@ -59,7 +66,8 @@ export default function Login() {
               type="password"
               placeholder="Password"
               className={styles.form_item}
-              value={user.password}  onChange={handleChange}
+              value={user.password}
+              onChange={handleChange}
               required
             />
             <br />
@@ -82,9 +90,23 @@ export default function Login() {
                 <Link href="/account/signup">Create one</Link>
               </span>
             </div>
-            {/* <div className="text-xxs w-80 m-auto text-gray mt-4">
-
-            </div> */}
+            <div className="text-xxs w-80 m-auto text-gray mt-2">
+              <div className="mb-1">
+                This site is protected by reCAPTCHA and the Google{" "}
+                <span className="text-link-blue">
+                  <Link href="https://policies.google.com/privacy">
+                    Privacy Policy
+                  </Link>{" "}
+                </span>
+                and{" "}
+                <span className="text-link-blue">
+                  <Link href="https://policies.google.com/terms">
+                    Terms of Service
+                  </Link>
+                </span>{" "}
+                apply.
+              </div>
+            </div>
           </div>
         </section>
       </main>

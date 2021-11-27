@@ -5,6 +5,7 @@ import axios from "axios";
 
 import Nav from "../../components/nav";
 import Footer from "../../components/footer";
+import Google from "../../components/google";
 import validateSignUp from "../../utils/clientValidate";
 
 import styles from "../../styles/SignUpLogin.module.css";
@@ -18,6 +19,7 @@ export default function SignUp() {
 
   const [emailErr, setEmailErr] = useState("");
   const [passErr, setPassErr] = useState("");
+  const [serverErr, setServerErr] = useState("");
 
   // Handle on Change
   const handleChange = (e) => {
@@ -36,9 +38,12 @@ export default function SignUp() {
     setPassErr(validate.errors.password);
 
     if (email && password && validate.formIsValid) {
-      axios
-        .post("http://localhost:3001/users/signup", user)
-        .then((res) => console.log(res));
+      axios.post("http://localhost:3001/users/signup", user).then((res) => {
+        if (res.data.err) {
+          setServerErr(res.data.err);
+          e.preventDefault();
+        }
+      });
     } else {
       e.preventDefault();
     }
@@ -56,30 +61,47 @@ export default function SignUp() {
       <main>
         <section className="py-12 px-8 text-center bg-secondary">
           <h1 className="font-bold text-3xl">Sign Up</h1>
+          {serverErr != "" && <p className="text-red-500">{serverErr}</p>}
+
+          <Google type = "Sign Up" />
+
+          <p className="mt-4 text-gray font-light">or</p>
+
           <form action="#" method="POST">
             <input
               name="email"
               type="text"
               placeholder="Email"
-              className={styles.form_item}
+              className={`${styles.form_item}`}
               value={user.email}
               onChange={handleChange}
               required
               id="email"
             />
-            {emailErr != "" ? <p className="text-red-500">{emailErr}</p> : <br />}
+            {emailErr != "" ? (
+              <p className="text-red-500">{emailErr}</p>
+            ) : (
+              <br />
+            )}
 
             <input
               name="password"
               type="password"
               placeholder="Password"
-              className={styles.form_item}
+              className={`${styles.form_item}`}
               value={user.password}
               onChange={handleChange}
               required
               id="pass"
             />
-            {passErr != "" ? <p className="text-red-500"dangerouslySetInnerHTML={{__html: passErr}}></p> : <br />}
+            {passErr != "" ? (
+              <p
+                className="text-red-500"
+                dangerouslySetInnerHTML={{ __html: passErr }}
+              ></p>
+            ) : (
+              <br />
+            )}
             <button
               type="submit"
               className={`button-fill mt-4 ${styles.form_button}`}
@@ -97,6 +119,21 @@ export default function SignUp() {
               </span>
             </div>
             <div className="text-xxs w-80 m-auto text-gray mt-4">
+              <div className="mb-1">
+                This site is protected by reCAPTCHA and the Google{" "}
+                <span className="text-link-blue">
+                  <Link href="https://policies.google.com/privacy">
+                    Privacy Policy
+                  </Link>{" "}
+                </span>
+                and{" "}
+                <span className="text-link-blue">
+                  <Link href="https://policies.google.com/terms">
+                    Terms of Service
+                  </Link>
+                </span>{" "}
+                apply.
+              </div>
               <span>
                 By clicking "Create Account", I agreee to TeamCollab's{" "}
               </span>
