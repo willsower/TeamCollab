@@ -1,11 +1,11 @@
 import Head from "next/head";
 import Link from "next/link";
-import Image from "next/image";
 import { useState } from "react";
 import axios from "axios";
 
 import Nav from "../../components/nav";
 import Footer from "../../components/footer";
+import Google from "../../components/google";
 import validateSignUp from "../../utils/clientValidate";
 
 import styles from "../../styles/SignUpLogin.module.css";
@@ -39,8 +39,8 @@ export default function SignUp() {
 
     if (email && password && validate.formIsValid) {
       axios.post("http://localhost:3001/users/signup", user).then((res) => {
-        if (res) {
-          setServerErr(res.data);
+        if (res.data.err) {
+          setServerErr(res.data.err);
           e.preventDefault();
         }
       });
@@ -63,15 +63,7 @@ export default function SignUp() {
           <h1 className="font-bold text-3xl">Sign Up</h1>
           {serverErr != "" && <p className="text-red-500">{serverErr}</p>}
 
-          {/* Google Sign In */}
-          <button className={`${styles.form_item}`}>
-            <div className="inline-block w-6 h-6 relative align-middle">
-              <Image src="/icon/google.svg" layout="fill" objectFit="contain" />
-            </div>
-            <p className="ml-2 inline-block align-middle font-semibold">
-              Sign in with Google
-            </p>
-          </button>
+          <Google type = "Sign Up" />
 
           <p className="mt-4 text-gray font-light">or</p>
 

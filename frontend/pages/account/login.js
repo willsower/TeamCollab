@@ -1,11 +1,11 @@
 import Head from "next/head";
 import Link from "next/link";
-import Image from "next/image";
 import { useState } from "react";
 import axios from "axios";
 
 import Nav from "../../components/nav";
 import Footer from "../../components/footer";
+import Google from "../../components/google";
 
 import styles from "../../styles/SignUpLogin.module.css";
 
@@ -45,15 +45,8 @@ export default function Login() {
       <main>
         <section className="py-12 px-8 text-center bg-secondary">
           <h1 className="font-bold text-3xl">Log In</h1>
-          {/* Google Sign In */}
-          <button className={`${styles.form_item}`}>
-            <div className="inline-block w-6 h-6 relative align-middle">
-              <Image src="/icon/google.svg" layout="fill" objectFit="contain" />
-            </div>
-            <p className="ml-2 inline-block align-middle font-semibold">
-              Login with Google
-            </p>
-          </button>
+         
+          <Google type = "Login" />
 
           <p className="mt-4 text-gray font-light">or</p>
 
