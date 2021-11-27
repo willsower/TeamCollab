@@ -1,4 +1,5 @@
 const User = require("../models/user");
+// const Methods = require ("../middleware/registerAuth");
 
 //Login
 const userLogin = (req, res, next) => {
@@ -20,7 +21,8 @@ const userLogin = (req, res, next) => {
           res.send({ message: "wrong password" });
         } else {
           console.log("Login Success");
-          res.send({ message: "login sucess", user: user });
+          // res.send({ message: "login sucess", user: user });
+          res.redirect("https://www.digitalocean.com/community/tutorials/how-to-add-login-authentication-to-react-applications");
         }
       });
     } else {
@@ -37,7 +39,7 @@ const userRegister = (req, res, next) => {
   User.findOne({ email: email }, (err, user) => {
     if (user) {
       console.log("USER EXISTS");
-      res.send("User already exists");
+      res.send({ err: "User already exists" });
     } else {
       const user = new User({ email, password });
       user.save((err) => {
@@ -46,6 +48,7 @@ const userRegister = (req, res, next) => {
         } else {
           console.log("SUCCESS");
           res.send({ message: "sucessfull" });
+          res.redirect("http://localhost:3001/home");
         }
       });
     }
